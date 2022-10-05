@@ -1,0 +1,8 @@
+#!/bin/bash
+
+screen -dmS Rclone-MistyMovies-Http fclone serve http MistyMovies: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10001
+screen -dmS Rclone-MistyTVShows-Http fclone serve http MistyTVShows: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10002
+screen -dmS Rclone-MistyConcerts-Http fclone serve http MistyConcerts: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10003
+screen -dmS Rclone-MistyAnimations-Http fclone serve http MistyAnimations: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10004
+screen -dmS Rclone-MistyOthers-Http fclone serve http MistyOthers: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10005
+screen -dmS Rclone-MistyPorns-Http fclone serve http MistyPorns: -v --vfs-cache-mode full --vfs-cache-max-size 100G --transfers=320 --buffer-size=128M --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --no-modtime --fast-list --addr :10006
