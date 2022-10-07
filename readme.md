@@ -42,7 +42,13 @@
 > 开启直连服务 
 
     screen -S emby-direct python3 main.py
-    
+
+---
+
+*双版本 Varinish 配置 emby-cache.vcl 为仅缓存图像及非业务请求 自行选择*
+
+*开启后访问 IP:9999 端口即可访问至 Varnish*
+
 ---
 
 ## 参考资料
