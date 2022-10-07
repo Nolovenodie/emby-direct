@@ -7,6 +7,9 @@ backend default {
 
 sub vcl_recv {
     # 流媒体播放
+    if (req.http.Range ~ "bytes=") {
+        set req.http.x-range = req.http.Range;
+    }
     if (req.url ~ "stream") {
             return(synth(750, "Stream"));
     }
@@ -24,5 +27,18 @@ sub vcl_synth {
         set resp.http.Location = "http://127.0.0.1:10000/" + req.url;
         set resp.status = 302;
         return(deliver);
+    }
+}
+
+sub vcl_backend_fetch {
+    if (bereq.http.x-range) {
+        set bereq.http.Range = bereq.http.x-range;
+    }
+}
+
+sub vcl_backend_response {
+    if (bereq.http.x-range ~ "bytes=" && beresp.status == 206) {
+        set beresp.ttl = 10m;
+        set beresp.http.CR = beresp.http.content-range;
     }
 }
