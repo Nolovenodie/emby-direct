@@ -12,6 +12,16 @@
 
     apt install screen python3 python3-pip -y
 
+## Direct
+
+> 安装直连依赖 
+
+    pip3 install -r requirements.txt
+
+> 开启直连服务 
+
+    screen -S emby-direct python3 main.py
+    
 ## Cache
 
 > 安装 Varnish 
@@ -25,23 +35,13 @@
     cp varnish.service /lib/systemd/system/
 
 > 编辑 Varnish 
-
+    # 修改 emby.vcl 内的 127.0.0.1:10000 为直链服务的地址 
     nano /etc/varnish/emby.vcl
 
 > 重启 Varnish 
 
     systemctl daemon-reload
     systemctl restart varnish
-
-## Direct
-
-> 安装直连依赖 
-
-    pip3 install -r requirements.txt
-
-> 开启直连服务 
-
-    screen -S emby-direct python3 main.py
 
 ---
 
