@@ -35,6 +35,7 @@
     cp varnish.service /lib/systemd/system/
 
 > 编辑 Varnish 
+
     # 修改 emby.vcl 内的 127.0.0.1:10000 为直链服务的地址 
     nano /etc/varnish/emby.vcl
 
