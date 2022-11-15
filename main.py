@@ -20,7 +20,7 @@ def stream(item_id, file_name):
 
     for i in CONFIG_DIRECT_LIST:
         # print(info_json["Items"][0]["Path"], i["from"], i["to"])
-        index_url = index_url.replace(parse.quote(i["from"]), CONFIG_DIRECT_HOST + i["to"])
+        index_url = CONFIG_DIRECT_HOST + i["to"] + parse.quote(index_url.replace(i["from"], ""))
 
     index_url = index_url.replace("%2F", "/")
     print("直链 >> ", index_url)
