@@ -13,8 +13,8 @@ sub vcl_recv {
     if (req.url ~ "stream") {
             return(synth(750, "Stream"));
     }
-    # API业务 且 不是图片 则 不缓存
-    if (req.url ~ "/emby/" && !req.url ~ "Primary") {
+    # API业务 且 不是图片 或 为用户业务请求 则 不缓存
+    if (req.url ~ "/emby/" && !req.url ~ "Primary" || req.url ~ "/Users/") {
             return(pass);
     }
     # 全量缓存
